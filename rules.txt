@@ -37,7 +37,8 @@ service cloud.firestore {
 	    allow write: if isSignedIn();
       // Challenge: Extract out the last statement into a function called 'userIsAuthorOfPost()' and call it
       allow read: if isSignedIn() && userIsAuthorOfPost();
-      
+      allow update: if isSignedIn() && userIsAuthorOfPost();
+      allow delete: // Challenge: Users should be logged in and the author of the post to delete;
     }
   }
 }
